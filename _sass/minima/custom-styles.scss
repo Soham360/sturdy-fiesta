@@ -1,27 +1,14 @@
-/*-----------------------------------*/
-/*--- IMPORT STYLES FOR Mortpages ---*/
-@import "minima/Nighthawkpages-styles";   
 
-/*-----------------------------------*/
-/*--- CUSTOM STYLES FOR Nighthawkpages ---*/
-// Uncomment out the following themes to use them 
+@import "minima/sturdy-fiesta-styles";   
 
-// @import "minima/hacker/jekyll-theme-hacker"; //Hacker theme 
-// @import "minima/minimal-mistakes"; //Minimal Mistakes theme 
-// @import "minima/monophase/main"; //Monophase theme 
-// @import "minima/leaf/_leaf";  //Leaf theme 
-// @import "minima/hamilton/main"; //Hamilton theme
 
-/*-----------------------------------*/
-/*----- ADD YOUR STYLES BELOW -------*/
+@import "minima/fastpages-dracula-highlight"; 
 
-// If you want to turn off dark background for syntax highlighting, comment or delete the below line.
-// If you want to use dark themes uncomment out the following lines
-@import "minima/Nighthawkpages-dracula-highlight"; 
-@import "minima/Dark_Mode"; // Dracula Highlight recommended for dark mode
 
-// FOR HAMILTON
-// @import "minima/hamilton/skins/daylight";
-// @import "minima/hamilton/skins/midnight";
-// @import "minima/hamilton/skins/sunrise";
-// @import "minima/hamilton/skins/sunset"
+.site-header {
+    background-color: rgb(129, 188, 206);
+    }
+    
+    main.page-content {
+        background-color: rgb(174, 219, 255);
+    } 
