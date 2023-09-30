@@ -1,13 +1,7 @@
-/*-----------------------------------*/
-/*--- IMPORT STYLES FOR FASTPAGES ---*/
-@import "minima/fastpages-styles";   
+
+@import "minima/Nighthawkpages-styles";   
 
 
-
-/*-----------------------------------*/
-/*----- ADD YOUR STYLES BELOW -------*/
-
-// If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
 
 
@@ -17,4 +11,4 @@
     
     main.page-content {
         background-color: rgb(174, 219, 255);
-    }
+    } 
