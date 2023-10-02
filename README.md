@@ -8,7 +8,6 @@ Four big guys, planning's their might,
 Calendars and tasks, they'll get it all right.
 With schedules and goals, they'll make days take flight,
 Efficient planning for all, from morning till night.
-
 ```
 - Go to settings and configure pages, deploy from the branch, and then select the root folder. IF YOU DO NOT DO THIS YOUR PAGE WILL NOT BUILD. 
 
