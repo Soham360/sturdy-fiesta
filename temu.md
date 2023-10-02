@@ -69,7 +69,7 @@ title: Temu
     <body>
         <header>
             <div class="logo">
-                <img src="https://github.com/Soham360/sturdy-fiesta/blob/8f3e21fc352494a6683559896536c638256bb9f3/images/Temu_logo.png" alt="Temu logo">
+                <img src="https://github.com/Soham360/sturdy-fiesta/blob/master/images/Temu_logo.png?raw=true" alt="Temu logo">
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search for products...">
