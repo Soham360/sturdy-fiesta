@@ -4,7 +4,6 @@ permalink: /temu/
 title: Temu
 ---
 
-<!DOCTYPE html>
 <html>
 <head>
   <title>Temu.com</title>
@@ -27,27 +26,31 @@ title: Temu
     <div class="products">
       <div class="product-row">
         <div class="product">
-          <img src="product1.jpg" alt="Product 1">
-          <div class="product-info">
-            <h3>Product 1</h3>
+          <img src="Kevin.jpg" alt="Kevin Du">
+          <div class="kevin-info">
+            <h3>Kevin Du</h3>
+            <span class="price">1000¥</span>
           </div>
         </div>
         <div class="product">
-          <img src="product2.jpg" alt="Product 2">
+          <img src="Soham.jpg" alt="Soham Kamat">
           <div class="product-info">
-            <h3>Product 2</h3>
+            <h3>Soham Kamat</h3>
+            <span class="price">₹50</span>
           </div>
         </div>
         <div class="product">
-          <img src="product3.jpg" alt="Product 3">
+          <img src="Aniket.jpg" alt="Aniket Chakradeo">
           <div class="product-info">
-            <h3>Product 3</h3>
+            <h3>Aniket Chakradeo</h3>
+            <span class="price">₹50</span>
           </div>
         </div>
         <div class="product">
-          <img src="product4.jpg" alt="Product 4">
+          <img src="Orlando.jpg" alt="Orlando Carcamo">
           <div class="product-info">
-            <h3>Product 4</h3>
+            <h3>Orlando Carcamo</h3>
+            <span class="price">$10</span>
           </div>
         </div>
       </div>
@@ -56,24 +59,28 @@ title: Temu
           <img src="product5.jpg" alt="Product 5">
           <div class="product-info">
             <h3>Product 5</h3>
+            <span class="price">$59.99</span>
           </div>
         </div>
         <div class="product">
           <img src="product6.jpg" alt="Product 6">
           <div class="product-info">
             <h3>Product 6</h3>
+            <span class="price">$69.99</span>
           </div>
         </div>
         <div class="product">
           <img src="product7.jpg" alt="Product 7">
           <div class="product-info">
             <h3>Product 7</h3>
+            <span class="price">$79.99</span>
           </div>
         </div>
         <div class="product">
           <img src="product8.jpg" alt="Product 8">
           <div class="product-info">
             <h3>Product 8</h3>
+            <span class="price">$89.99</span>
           </div>
         </div>
       </div>
