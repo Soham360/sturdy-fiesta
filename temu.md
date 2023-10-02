@@ -4,6 +4,7 @@ permalink: /temu/
 title: Temu
 ---
 
+<!DOCTYPE html>
 <html>
 <head>
   <title>Temu.com</title>
@@ -12,7 +13,7 @@ title: Temu
 <body>
   <header>
     <div class="logo">
-      <img src="/images/Temu_logo.png" alt="Temu.com">
+      <img src="images/Temu_logo.png" alt="Temu.com">
     </div>
     <div class="search-bar">
       <input type="text" placeholder="Search for products...">
@@ -23,45 +24,56 @@ title: Temu
     </div>
   </header>
   <main>
-    <div class="categories">
-      <h2>Categories</h2>
-      <ul>
-        <li><a href="#">Clothing</a></li>
-        <li><a href="#">Home & Garden</a></li>
-        <li><a href="#">Electronics</a></li>
-        <li><a href="#">Sports & Outdoors</a></li>
-        <li><a href="#">Toys & Games</a></li>
-        <li><a href="#">More</a></li>
-      </ul>
-    </div>
-    <div class="featured-products">
-      <h2>Featured Products</h2>
-      <div class="products">
+    <div class="products">
+      <div class="product-row">
         <div class="product">
           <img src="product1.jpg" alt="Product 1">
           <div class="product-info">
             <h3>Product 1</h3>
-            <p>This is a product description for Product 1.</p>
-            <span class="price">$19.99</span>
-            <button type="submit">Add to Cart</button>
           </div>
         </div>
         <div class="product">
           <img src="product2.jpg" alt="Product 2">
           <div class="product-info">
             <h3>Product 2</h3>
-            <p>This is a product description for Product 2.</p>
-            <span class="price">$29.99</span>
-            <button type="submit">Add to Cart</button>
           </div>
         </div>
         <div class="product">
           <img src="product3.jpg" alt="Product 3">
           <div class="product-info">
             <h3>Product 3</h3>
-            <p>This is a product description for Product 3.</p>
-            <span class="price">$39.99</span>
-            <button type="submit">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product">
+          <img src="product4.jpg" alt="Product 4">
+          <div class="product-info">
+            <h3>Product 4</h3>
+          </div>
+        </div>
+      </div>
+      <div class="product-row">
+        <div class="product">
+          <img src="product5.jpg" alt="Product 5">
+          <div class="product-info">
+            <h3>Product 5</h3>
+          </div>
+        </div>
+        <div class="product">
+          <img src="product6.jpg" alt="Product 6">
+          <div class="product-info">
+            <h3>Product 6</h3>
+          </div>
+        </div>
+        <div class="product">
+          <img src="product7.jpg" alt="Product 7">
+          <div class="product-info">
+            <h3>Product 7</h3>
+          </div>
+        </div>
+        <div class="product">
+          <img src="product8.jpg" alt="Product 8">
+          <div class="product-info">
+            <h3>Product 8</h3>
           </div>
         </div>
       </div>
