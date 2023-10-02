@@ -4,7 +4,7 @@ https://soham360.github.io/sturdy-fiesta/
 
 ## Team Theme Song
 
-Four big guys, makeup’s their delight,
+Four big guys, makeup’s their delight, \n
 Brushes and palettes, they’ll paint the world bright.
 In shades and in hues, they’ll make faces ignite,
 Bold beauty for all, in the day and the night.
