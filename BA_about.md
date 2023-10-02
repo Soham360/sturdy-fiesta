@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About Me
+title: About Us
 permalink: /about/
 ---
 
-A Fastpages clone, for CSA - Soham Kamat
+A fastpages clone for 
