@@ -4,4 +4,4 @@ title: About Us
 permalink: /about/
 ---
 
-A fastpages clone for 
+Nighthawk Coding Society - Equipo de no Papels
