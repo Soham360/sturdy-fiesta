@@ -12,7 +12,7 @@ title: Temu
 <body>
   <header>
     <div class="logo">
-      <img src="images/Temu_logo.png" alt="Temu.com">
+      <img src="/images/Temu_logo.png" alt="Temu.com">
     </div>
     <div class="search-bar">
       <input type="text" placeholder="Search for products...">
