@@ -1,9 +1,3 @@
----
-layout: base
-permalink: /temu/
-title: Temu
----
-
 <html>
 <head>
   <title>Temu.com</title>

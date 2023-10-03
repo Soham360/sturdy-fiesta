@@ -1,9 +1,3 @@
----
-layout: base
-permalink: /wheel/
-title: Wheel
----
-
 <html>
 <head>
   <title>Rigged Spinning Wheel</title>
