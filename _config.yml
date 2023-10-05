@@ -7,11 +7,11 @@ baseurl: "/sturdy-fiesta"
 remote_theme: jekyll/minima
 minima:
   social_links:
+    - { platform: github, user_url: "https://github.com/Soham360/sturdy-fiesta"}
     - { platform: github, user_url: "https://github.com/Soham360"}
     - { platform: github, user_url: "https://github.com/AniCricKet"}
     - { platform: github, user_url: "https://github.com/DasMoge124"}
     - { platform: github, user_url: "https://github.com/Orlando-c"}
-    - { platform: github, user_url: "https://github.com/Soham360/sturdy-fiesta"}
 # remote_theme: pages-themes/dinky@v0.2.0
 # remote_theme: pages-themes/minimal@v0.2.0
 # remote_theme: pages-themes/hacker@v0.2.0
