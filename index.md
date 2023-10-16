@@ -26,15 +26,22 @@ title: Home
         }
         // Define your school schedule
         const schedule = [
-            { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69 },
-            { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69 },
-            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10 },
-            { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69 },
-            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30 },
-            { period: 'Period 4', startTime: '12:57', endTime: '02:06', duration: 69 },
-            { period: 'OFFICE HOURS', startTime: '02:06', endTime: '02:31', duration: 25 },
-            { period: 'Period 5', startTime: '02:36', endTime: '03:45', duration: 69 }
+            { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
+            { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
+            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10, class: '' },
+            { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
+            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30, class: '' },
+            { period: 'Period 4', startTime: '12:57', endTime: '02:06', duration: 69, class: '' },
+            { period: 'OFFICE HOURS', startTime: '02:06', endTime: '02:31', duration: 25, class: '' },
+            { period: 'Period 5', startTime: '02:36', endTime: '03:45', duration: 69, class: '' }
         ];
+        // Function to update the schedule based on user input
+        function updateSchedule() {
+            for (let i = 0; i < schedule.length; i++) {
+                schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
+            }
+            updateClock();
+        }
         function updateClock() {
             const now = new Date();
             const hours = now.getHours();
@@ -50,7 +57,7 @@ title: Home
             scheduleResults.innerHTML = '';
             for (const item of schedule) {
                 const timeLeft = calculateTimeLeft(now, item.startTime, item.endTime);
-                scheduleResults.innerHTML += `<p>${item.period}: ${timeLeft.toFixed(0)} minutes left</p>`;
+                scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${timeLeft.toFixed(0)} minutes left</p>`;
             }
         }
         // Call updateClock initially to set the time and schedule
@@ -58,5 +65,19 @@ title: Home
         // Update the clock and schedule every second
         setInterval(updateClock, 1000);
     </script>
+    <div>
+        <h3>Input Your Classes</h3>
+        <label for="classPeriod1">Period 1:</label>
+        <input type="text" id="classPeriod1"><br>
+        <label for="classPeriod2">Period 2:</label>
+        <input type="text" id="classPeriod2"><br>
+        <label for="classPeriod3">Period 3:</label>
+        <input type="text" id="classPeriod3"><br>
+        <label for="classPeriod4">Period 4:</label>
+        <input type="text" id="classPeriod4"><br>
+        <label for="classPeriod5">Period 5:</label>
+        <input type="text" id="classPeriod5"><br>
+        <button onclick="updateSchedule()">Update Schedule</button>
+    </div>
 </body>
 </html>
