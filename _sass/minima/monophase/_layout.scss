@@ -254,20 +254,6 @@ a.pagination-item:hover {
   text-decoration: none;
 }
 
-/**
- * Footer
- */
-
-.footer {
-  padding-top: var(--spacer);
-  padding-bottom: var(--spacer);
-  margin-top: var(--spacer-3);
-
-  p {
-    margin: 0;
-  }
-}
-
 .social-icons {
   list-style: none;
   padding: 0;
@@ -280,12 +266,6 @@ a.pagination-item:hover {
 }
 
 @media screen and (min-width: $md-screen) {
-  .footer {
-    display: flex;
-  }
-  .footer-column {
-    width: 100%;
-  }
   .social-icons {
     margin: 0;
   }

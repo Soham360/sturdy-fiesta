@@ -80,15 +80,5 @@
       </div>
     </div>
   </main>
-  <footer>
-    <div class="copyright">
-      <p>Copyright © 2023 Temu.com</p>
-    </div>
-    <div class="social-media">
-      <a href="#"><img src="facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="twitter.png" alt="Twitter"></a>
-      <a href="#"><img src="instagram.png" alt="Instagram"></a>
-    </div>
-  </footer>
 </body>
 </html>
