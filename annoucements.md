@@ -12,11 +12,10 @@ title: Announcements
     }
     .container {
         max-width: 600px;
-        margin: 50px auto;
+        margin: 10px auto;
         padding: 20px;
         background-color: #444;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     h1 {
         text-align: center;
