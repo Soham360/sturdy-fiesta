@@ -7,7 +7,7 @@ title: Schedule
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Schedule Example</title>
+    <title>The Current Schedule So far</title>
 </head>
 <body>
     <div id="message"></div>
