@@ -3,7 +3,7 @@ layout: base
 title: Schedule
 ---
 ## Schedule
-- This is the schedule for our project!!
+- This is the schedule for our project!
 <style>
     .eventList {
             color: white;
