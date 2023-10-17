@@ -11,6 +11,8 @@ title: Schedule
     }
     .eventName{
         style="color:blue;"
+    }.td{
+        style="color:blue;"
     }
 </style>
 <html>
