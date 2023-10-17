@@ -38,34 +38,34 @@ title: Home
             const timeLeft = Math.max(0, (end - current) / 60000); // in minutes
             return timeLeft;
         }
-        // Define your school schedule with non-overlapping times
-const schedule = [
-    { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
-    { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
-    { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10, class: '' },
-    { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
-    { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30, class: '' },
-    { period: 'Period 4', startTime: '12:57', endTime: '14:06', duration: 69, class: '' },
-    { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25, class: '' },
-    { period: 'Period 5', startTime: '14:36', endTime: '15:45', duration: 69, class: '' }
-];
+        // Define your school schedule with non-overlapping times in 24-hour format
+        const schedule = [
+            { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
+            { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
+            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10, class: '' },
+            { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
+            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30, class: '' },
+            { period: 'Period 4', startTime: '12:57', endTime: '14:06', duration: 69, class: '' },
+            { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25, class: '' },
+            { period: 'Period 5', startTime: '14:36', endTime: '15:45', duration: 69, class: '' }
+        ];
         // Function to update the schedule based on user input
-function updateSchedule() {
-    for (let i = 0; i < schedule.length; i++) {
-        const periodInput = document.getElementById(`classPeriod${i + 1}`);
-        if (!isSpecialPeriod(schedule[i].period)) {
-            schedule[i].class = periodInput.value;
-        } else {
-            schedule[i].class = '';
-            periodInput.value = ''; // Clear the input field for special periods
+        function updateSchedule() {
+            for (let i = 0; i < schedule.length; i++) {
+                const periodInput = document.getElementById(`classPeriod${i + 1}`);
+                if (!isSpecialPeriod(schedule[i].period)) {
+                    schedule[i].class = periodInput.value;
+                } else {
+                    schedule[i].class = ''; // Clear any user input for special periods
+                    periodInput.value = ''; // Clear the input field for special periods
+                }
+            }
+            updateClock();
         }
-    }
-    updateClock();
-}
-// Function to check if the period is special (BREAK, LUNCH, OFFICE HOURS)
-function isSpecialPeriod(period) {
-    return period === 'BREAK' || period === 'LUNCH' || period === 'OFFICE HOURS';
-}
+        // Function to check if the period is special (BREAK, LUNCH, OFFICE HOURS)
+        function isSpecialPeriod(period) {
+            return period === 'BREAK' || period === 'LUNCH' || period === 'OFFICE HOURS';
+        }
         function updateClock() {
             const now = new Date();
             const hours = now.getHours();
