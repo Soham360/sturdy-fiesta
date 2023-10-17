@@ -2,48 +2,82 @@
 layout: base
 title: Home
 ---
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Local Time</title>
+    <title>School Schedule Tracker</title>
 </head>
 <body>
     <div id="time"></div>
+    <div id="scheduleResults"></div>
     <script>
-        // Get the current date and time
-            const now = new Date();
-        // Get the hours, minutes, and seconds
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
-        // Display the time in a 12-hour format with AM/PM
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        const formattedHours = hours % 12 || 12; // Convert 0 to 12 for 12 AM
-        const timeString = `${formattedHours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
-        // Display the time on the webpage
-        const timeElement = document.getElementById('time'); // Change 'time' to the ID of your HTML element
-        timeElement.textContent = timeString;
+        // Function to calculate the time left in a period
+        function calculateTimeLeft(currentTime, startTime, endTime) {
+            const current = new Date(currentTime);
+            const start = new Date(currentTime);
+            const end = new Date(currentTime);
+            start.setHours(startTime.split(':')[0]);
+            start.setMinutes(startTime.split(':')[1]);
+            end.setHours(endTime.split(':')[0]);
+            end.setMinutes(endTime.split(':')[1]);
+            const timeLeft = Math.max(0, (end - current) / 60000); // in minutes
+            return timeLeft;
+        }
+        // Define your school schedule
+        const schedule = [
+            { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
+            { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
+            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10, class: '' },
+            { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
+            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30, class: '' },
+            { period: 'Period 4', startTime: '12:57', endTime: '02:06', duration: 69, class: '' },
+            { period: 'OFFICE HOURS', startTime: '02:06', endTime: '02:31', duration: 25, class: '' },
+            { period: 'Period 5', startTime: '02:36', endTime: '03:45', duration: 69, class: '' }
+        ];
+        // Function to update the schedule based on user input
+        function updateSchedule() {
+            for (let i = 0; i < schedule.length; i++) {
+                schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
+            }
+            updateClock();
+        }
         function updateClock() {
-            // Get the current date and time
             const now = new Date();
-            // Get the hours, minutes, and seconds
             const hours = now.getHours();
             const minutes = now.getMinutes();
             const seconds = now.getSeconds();
-            // Display the time in a 12-hour format with AM/PM
             const ampm = hours >= 12 ? 'PM' : 'AM';
-            const formattedHours = hours % 12 || 12; // Convert 0 to 12 for 12 AM
+            const formattedHours = hours % 12 || 12;
             const timeString = `${formattedHours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
-            // Display the time on the webpage
-            const timeElement = document.getElementById('time'); // Change 'time' to the ID of your HTML element
+            const timeElement = document.getElementById('time');
             timeElement.textContent = timeString;
+            // Calculate and display time left for each schedule period
+            const scheduleResults = document.getElementById('scheduleResults');
+            scheduleResults.innerHTML = '';
+            for (const item of schedule) {
+                const timeLeft = calculateTimeLeft(now, item.startTime, item.endTime);
+                scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${timeLeft.toFixed(0)} minutes left</p>`;
+            }
         }
-        // Call updateClock initially to set the time
+        // Call updateClock initially to set the time and schedule
         updateClock();
-        // Update the clock every second
+        // Update the clock and schedule every second
         setInterval(updateClock, 1000);
     </script>
+    <div>
+        <h3>Input Your Classes</h3>
+        <label for="classPeriod1">Period 1:</label>
+        <input type="text" id="classPeriod1"><br>
+        <label for="classPeriod2">Period 2:</label>
+        <input type="text" id="classPeriod2"><br>
+        <label for="classPeriod3">Period 3:</label>
+        <input type="text" id="classPeriod3"><br>
+        <label for="classPeriod4">Period 4:</label>
+        <input type="text" id="classPeriod4"><br>
+        <label for="classPeriod5">Period 5:</label>
+        <input type="text" id="classPeriod5"><br>
+        <button onclick="updateSchedule()">Update Schedule</button>
+    </div>
 </body>
 </html>
