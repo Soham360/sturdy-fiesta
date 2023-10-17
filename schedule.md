@@ -4,7 +4,12 @@ title: Schedule
 ---
 ## Schedule
 - This is the schedule for our project!!
-<!DOCTYPE html>
+<style>
+    .eventList {
+            color: white;
+            background-color: red; /* Optional background color for emphasis */
+    }
+</style>
 <html>
 <head>
     <title>Customizable Event Schedule</title>
