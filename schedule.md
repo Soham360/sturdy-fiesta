@@ -28,7 +28,11 @@ title: Schedule
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
+                Event Time:
+                <input type="time" id="eventTime">
+            </td>
+            <td>
                 <button onclick="planEvent()">Plan Event</button>
             </td>
         </tr>
@@ -40,11 +44,12 @@ title: Schedule
     </table>
     <table border="1">
         <tr>
-            <td colspan="2" align="center">Scheduled Events</td>
+            <td colspan="3" align="center">Scheduled Events</td>
         </tr>
         <tr>
             <td>Event Name</td>
             <td>Event Date</td>
+            <td>Event Time</td>
         </tr>
         <tbody id="eventList">
         </tbody>
@@ -58,14 +63,16 @@ title: Schedule
         function planEvent() {
             const eventName = document.getElementById('eventName').value;
             const eventDate = document.getElementById('eventDate').value;
-            if (!eventName || !eventDate) {
+            const eventTime = document.getElementById('eventTime').value;
+            if (!eventName || !eventDate || !eventTime) {
                 alert('Please enter event details.');
                 return;
             }
-            events.push({ name: eventName, date: eventDate });
+            events.push({ name: eventName, date: eventDate, time: eventTime });
             displayEvents();
             document.getElementById('eventName').value = '';
             document.getElementById('eventDate').value = '';
+            document.getElementById('eventTime').value = '';
             showMessage('Event planned successfully.');
         }
         function displayEvents() {
@@ -77,13 +84,14 @@ title: Schedule
                 nameCell.textContent = event.name;
                 const dateCell = document.createElement('td');
                 dateCell.textContent = event.date;
+                const timeCell = document.createElement('td');
+                timeCell.textContent = event.time;
                 row.appendChild(nameCell);
                 row.appendChild(dateCell);
+                row.appendChild(timeCell);
                 eventList.appendChild(row);
             }
         }
     </script>
 </body>
 </html>
-
-
