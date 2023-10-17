@@ -50,12 +50,22 @@ const schedule = [
     { period: 'Period 5', startTime: '14:36', endTime: '15:45', duration: 69, class: '' }
 ];
         // Function to update the schedule based on user input
-        function updateSchedule() {
-            for (let i = 0; i < schedule.length; i++) {
-                schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
-            }
-            updateClock();
+function updateSchedule() {
+    for (let i = 0; i < schedule.length; i++) {
+        const periodInput = document.getElementById(`classPeriod${i + 1}`);
+        if (!isSpecialPeriod(schedule[i].period)) {
+            schedule[i].class = periodInput.value;
+        } else {
+            schedule[i].class = '';
+            periodInput.value = ''; // Clear the input field for special periods
         }
+    }
+    updateClock();
+}
+// Function to check if the period is special (BREAK, LUNCH, OFFICE HOURS)
+function isSpecialPeriod(period) {
+    return period === 'BREAK' || period === 'LUNCH' || period === 'OFFICE HOURS';
+}
         function updateClock() {
             const now = new Date();
             const hours = now.getHours();
