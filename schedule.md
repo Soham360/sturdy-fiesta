@@ -9,6 +9,9 @@ title: Schedule
             color: white;
             background-color: red; /* Optional background color for emphasis */
     }
+    .eventName{
+
+    }
 </style>
 <html>
 <head>
@@ -25,7 +28,7 @@ title: Schedule
         <tr>
             <td>
                 Event Name:
-                <input type="text" id="eventName">
+                <input type="text" id="eventName" style="color:blue;">
             </td>
             <td>
                 Event Date:
