@@ -3,7 +3,7 @@ layout: base
 title: Schedule
 ---
 ## Schedule
-- This is the schedule
+- This is the schedule for our project
 <!DOCTYPE html>
 <html>
 <head>
