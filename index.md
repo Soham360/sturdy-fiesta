@@ -38,15 +38,15 @@ title: Home
             const timeLeft = Math.max(0, (end - current) / 60000); // in minutes
             return timeLeft;
         }
-        // Define your school schedule with non-overlapping times in 24-hour format
+        // Define school bell schedule 
         const schedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
             { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
-            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10, class: '' },
+            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10},
             { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
-            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30, class: '' },
+            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30},
             { period: 'Period 4', startTime: '12:57', endTime: '14:06', duration: 69, class: '' },
-            { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25, class: '' },
+            { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25},
             { period: 'Period 5', startTime: '14:36', endTime: '15:45', duration: 69, class: '' }
         ];
         // Function to update the schedule based on user input
