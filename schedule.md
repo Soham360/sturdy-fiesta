@@ -7,63 +7,82 @@ title: Schedule
 <!DOCTYPE html>
 <html>
 <head>
-<title>Customizable Schedule</title>
+    <title>Customizable Event Schedule</title>
 </head>
 <body>
-<table border="1">
-<tr>
-    <td colspan="2" align="center">Customizable Schedule</td>
-</tr>
-<tr>
-    <td colspan="2">Enter the Start Date:</td>
-</tr>
-<tr>
-    <td>
-        <input type="date" id="startDate">
-    </td>
-    <td>
-        <button onclick="startSchedule()">Start Schedule</button>
-    </td>
-</tr>
-<tr>
-    <td colspan="2">
-        <div id="message"></div>
-    </td>
-</tr>
-</table>
-
-<script>
-function showMessage() {
-    const messageDiv = document.getElementById('message');
-    messageDiv.innerHTML = 'Your custom message here.';
-}
-
-function startSchedule() {
-    const startDate = new Date(document.getElementById('startDate').value);
-    if (isNaN(startDate)) {
-        alert('Please select a valid start date.');
-        return;
-    }
-
-    const endDate = new Date(startDate);
-    endDate.setMonth(startDate.getMonth() + 3);
-
-    if (window.scheduleInterval) {
-        clearInterval(window.scheduleInterval);
-    }
-
-    showMessage();
-
-    window.scheduleInterval = setInterval(function() {
-        const now = new Date();
-        if (now >= endDate) {
-            clearInterval(window.scheduleInterval);
-            return;
+    <table border="1">
+        <tr>
+            <td colspan="2" align="center">Customizable Event Schedule</td>
+        </tr>
+        <tr>
+            <td colspan="2">Enter Event Details:</td>
+        </tr>
+        <tr>
+            <td>
+                Event Name:
+                <input type="text" id="eventName">
+            </td>
+            <td>
+                Event Date:
+                <input type="date" id="eventDate">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="planEvent()">Plan Event</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="message"></div>
+            </td>
+        </tr>
+    </table>
+    <table border="1">
+        <tr>
+            <td colspan="2" align="center">Scheduled Events</td>
+        </tr>
+        <tr>
+            <td>Event Name</td>
+            <td>Event Date</td>
+        </tr>
+        <tbody id="eventList">
+        </tbody>
+    </table>
+    <script>
+        const events = [];
+        function showMessage(message) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = message;
         }
-        showMessage();
-    }, 1000);
-}
-</script>
+        function planEvent() {
+            const eventName = document.getElementById('eventName').value;
+            const eventDate = document.getElementById('eventDate').value;
+            if (!eventName || !eventDate) {
+                alert('Please enter event details.');
+                return;
+            }
+            events.push({ name: eventName, date: eventDate });
+            displayEvents();
+            document.getElementById('eventName').value = '';
+            document.getElementById('eventDate').value = '';
+            showMessage('Event planned successfully.');
+        }
+        function displayEvents() {
+            const eventList = document.getElementById('eventList');
+            eventList.innerHTML = '';
+            for (const event of events) {
+                const row = document.createElement('tr');
+                const nameCell = document.createElement('td');
+                nameCell.textContent = event.name;
+                const dateCell = document.createElement('td');
+                dateCell.textContent = event.date;
+                row.appendChild(nameCell);
+                row.appendChild(dateCell);
+                eventList.appendChild(row);
+            }
+        }
+    </script>
 </body>
 </html>
 
