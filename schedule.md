@@ -10,7 +10,7 @@ title: Schedule
             background-color: red; /* Optional background color for emphasis */
     }
     .eventName{
-
+        style="color:blue;"
     }
 </style>
 <html>
