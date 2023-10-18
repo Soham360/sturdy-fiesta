@@ -39,16 +39,16 @@ title: Home
             return timeLeft;
         }
         // Define your school schedule with non-overlapping times
-const schedule = [
-    { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
-    { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
-    { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10},
-    { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
-    { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30},
-    { period: 'Period 4', startTime: '12:57', endTime: '14:06', duration: 69, class: '' },
-    { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25},
-    { period: 'Period 5', startTime: '14:36', endTime: '15:45', duration: 69, class: '' }
-];
+        const schedule = [
+            { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
+            { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
+            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10},
+            { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
+            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30},
+            { period: 'Period 4', startTime: '12:57', endTime: '14:06', duration: 69, class: '' },
+            { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25},
+            { period: 'Period 5', startTime: '14:36', endTime: '15:45', duration: 69, class: '' }
+        ];
         // Function to update the schedule based on user input
         function updateSchedule() {
             for (let i = 0; i < schedule.length; i++) {
@@ -71,7 +71,17 @@ const schedule = [
             scheduleResults.innerHTML = '';
             for (const item of schedule) {
                 const timeLeft = calculateTimeLeft(now, item.startTime, item.endTime);
-                scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${timeLeft.toFixed(0)} minutes left</p>`;
+                if (timeLeft > 0) {
+                    // Check if there are more than 60 minutes left
+                    if (timeLeft > 60) {
+                        const hoursLeft = Math.floor(timeLeft / 60);
+                        scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${hoursLeft} hours left</p>`;
+                    } else {
+                        scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${timeLeft.toFixed(0)} minutes left</p>`;
+                    }
+                } else {
+                    scheduleResults.innerHTML += `<p>${item.period} (${item.class}): Period finished</p>`;
+                }
             }
         }
         // Call updateClock initially to set the time and schedule
