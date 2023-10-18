@@ -38,7 +38,7 @@ title: Home
             const timeLeft = Math.max(0, (end - current) / 60000); // in minutes
             return timeLeft;
         }
-        // Define school bell schedule 
+        // Define your school schedule with non-overlapping times
         const schedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
             { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
@@ -52,19 +52,9 @@ title: Home
         // Function to update the schedule based on user input
         function updateSchedule() {
             for (let i = 0; i < schedule.length; i++) {
-                const periodInput = document.getElementById(`classPeriod${i + 1}`);
-                if (!isSpecialPeriod(schedule[i].period)) {
-                    schedule[i].class = periodInput.value;
-                } else {
-                    schedule[i].class = ''; // Clear any user input for special periods
-                    periodInput.value = ''; // Clear the input field for special periods
-                }
+                schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
             }
             updateClock();
-        }
-        // Function to check if the period is special (BREAK, LUNCH, OFFICE HOURS)
-        function isSpecialPeriod(period) {
-            return period === 'BREAK' || period === 'LUNCH' || period === 'OFFICE HOURS';
         }
         function updateClock() {
             const now = new Date();
@@ -81,7 +71,17 @@ title: Home
             scheduleResults.innerHTML = '';
             for (const item of schedule) {
                 const timeLeft = calculateTimeLeft(now, item.startTime, item.endTime);
-                scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${timeLeft.toFixed(0)} minutes left</p>`;
+                if (timeLeft > 0) {
+                    // Check if there are more than 60 minutes left
+                    if (timeLeft > 60) {
+                        const hoursLeft = Math.floor(timeLeft / 60);
+                        scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${hoursLeft} hours left</p>`;
+                    } else {
+                        scheduleResults.innerHTML += `<p>${item.period} (${item.class}): ${timeLeft.toFixed(0)} minutes left</p>`;
+                    }
+                } else {
+                    scheduleResults.innerHTML += `<p>${item.period} (${item.class}): Period finished</p>`;
+                }
             }
         }
         // Call updateClock initially to set the time and schedule
