@@ -52,10 +52,13 @@ title: Home
         // Function to update the schedule based on user input
         function updateSchedule() {
             for (let i = 0; i < schedule.length; i++) {
-                if (schedule[i] != 2 || schedule[i] ==4 ||schedule[i]==6){
+                if (schedule[i] == 2 || schedule[i] ==4 ||schedule[i]==6){
                     i+=1;
+                    continue;
                 }
-                schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
+                else{
+                    schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
+                }
             }
             updateClock();
         }
