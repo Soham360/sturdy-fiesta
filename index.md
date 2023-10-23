@@ -51,15 +51,20 @@ title: Home
         ];
         // Function to update the schedule based on user input
         function updateSchedule() {
-            for (let i = 0; i < schedule.length; i++) {
-                if (schedule[i] == 2 || schedule[i] ==4 ||schedule[i]==6){
-                    i+=1;
-                    continue;
-                }
-                else{
-                    schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
-                }
-            }
+            schedule[0].class = document.getElementById(`classPeriod${0 + 1}`).value;
+            schedule[1].class = document.getElementById(`classPeriod${1 + 1}`).value;
+            schedule[3].class = document.getElementById(`classPeriod${2 + 1}`).value;
+            schedule[5].class = document.getElementById(`classPeriod${3 + 1}`).value;
+            schedule[7].class = document.getElementById(`classPeriod${4 + 1}`).value;
+            //for (let i = 0; i < schedule.length; i++) {
+            //    if (schedule[i] == 2 || schedule[i] ==4 ||schedule[i]==6){
+            //        i+=1;
+            //        continue;
+            //    }
+            //    else{
+            //        schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
+            //    }
+            //}
             updateClock();
         }
         function updateClock() {
