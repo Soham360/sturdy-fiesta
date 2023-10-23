@@ -52,7 +52,7 @@ title: Home
         // Function to update the schedule based on user input
         function updateSchedule() {
             for (let i = 0; i < schedule.length; i++) {
-                if(schedule.period[i] != 'BREAK' ||schedule.period[i] != 'LUNCH'||schedule.period[i] !='OFFICE HOURS'){
+                if (schedule[i].period === 'Period 1' || schedule[i].period === 'Period 2' || schedule[i].period === 'Period 3' || schedule[i].period === 'Period 4' || schedule[i].period === 'Period 5') {
                     schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
                 }
             }
