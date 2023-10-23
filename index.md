@@ -53,8 +53,9 @@ title: Home
         function updateSchedule() {
             for (let i = 0; i < schedule.length; i++) {
                 if (schedule[i] != 2 || schedule[i] ==4 ||schedule[i]==6){
-                    schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
+                    i+=1;
                 }
+                schedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
             }
             updateClock();
         }
