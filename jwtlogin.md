@@ -21,7 +21,7 @@ permalink: /data/login
 </form>
 <script>
     // URL for deployment
-    var url = "https://spring.nighthawkcodingsociety.com"
+    var url = "https://no-papels.stu.nighthawkcodingsociety.com/"
     // Comment out next line for local testing
     // url = "http://localhost:8085"
     // Authenticate endpoint
