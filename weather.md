@@ -2,7 +2,6 @@
 layout: base
 title: Weather
 ---
-<!DOCTYPE html>
 <html>
 <head>
     <title>Weather Data</title>
