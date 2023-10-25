@@ -30,28 +30,28 @@ title: Home
         const commonSchedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
             { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
-            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10, class: 'AP Snacktime' },
+            { period: 'BREAK', startTime: '10:58', endTime: '11:08', duration: 10, class: 'Break' },
             { period: 'Period 3', startTime: '11:13', endTime: '12:22', duration: 69, class: '' },
-            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30, class: 'AP Lunch' },
+            { period: 'LUNCH', startTime: '12:22', endTime: '12:52', duration: 30, class: 'Lunch' },
             { period: 'Period 4', startTime: '12:57', endTime: '14:06', duration: 69, class: '' },
-            { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25, class: 'AP Tomfoolery' },
+            { period: 'OFFICE HOURS', startTime: '14:06', endTime: '14:31', duration: 25, class: 'Office Hours' },
             { period: 'Period 5', startTime: '14:36', endTime: '15:45', duration: 69, class: '' }
         ];
         const wednesdaySchedule = [
             { period: 'Period 1', startTime: '09:55', endTime: '10:53', duration: 58, class: '' },
             { period: 'Period 2', startTime: '10:58', endTime: '11:56', duration: 58, class: '' },
-            { period: 'BREAK', startTime: '11:56', endTime: '12:06', duration: 10, class: 'AP Snacktime' },
+            { period: 'BREAK', startTime: '11:56', endTime: '12:06', duration: 10, class: 'Break' },
             { period: 'Period 3', startTime: '12:11', endTime: '13:09', duration: 58, class: '' },
-            { period: 'LUNCH', startTime: '13:09', endTime: '13:39', duration: 30, class: 'AP Lunch' },
+            { period: 'LUNCH', startTime: '13:09', endTime: '13:39', duration: 30, class: 'Lunch' },
             { period: 'Period 4', startTime: '13:44', endTime: '14:42', duration: 58, class: '' },
             { period: 'Period 5', startTime: '14:47', endTime: '15:45', duration: 58, class: '' }
         ];
         const fridaySchedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:49', duration: 74, class: '' },
             { period: 'Period 2', startTime: '09:54', endTime: '11:08', duration: 74, class: '' },
-            { period: 'BREAK', startTime: '11:08', endTime: '11:18', duration: 10, class: 'AP Snacktime' },
+            { period: 'BREAK', startTime: '11:08', endTime: '11:18', duration: 10, class: 'Break' },
             { period: 'Period 3', startTime: '11:23', endTime: '12:37', duration: 74, class: '' },
-            { period: 'LUNCH', startTime: '12:37', endTime: '13:07', duration: 30, class: 'AP Lunch' },
+            { period: 'LUNCH', startTime: '12:37', endTime: '13:07', duration: 30, class: 'Lunch' },
             { period: 'Period 4', startTime: '13:12', endTime: '14:26', duration: 74, class: '' },
             { period: 'Period 5', startTime: '14:31', endTime: '15:45', duration: 74, class: '' }
         ];
