@@ -4,12 +4,41 @@ title: Weather
 ---
 <html>
 <head>
-    <title>Weather Data</title>
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            color: #000; /* Set the text color to black */
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            margin: 0;
+            padding: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <button id="getWeatherButton">Get Weather Data</button>
-    <div id="weatherData"></div>
-    <div id="clothingAdvice"></div>
+    <div id="content">
+        <h1>Weather App</h1>
+        <button id="getWeatherButton">Get Weather Data</button>
+        <div id="weatherData"></div>
+        <div id="clothingAdvice"></div>
+    </div>
+
     <script>
         document.getElementById("getWeatherButton").addEventListener("click", function() {
             const latitude = 33.01479454987898;
