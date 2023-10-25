@@ -4,7 +4,6 @@ title: Weather
 ---
 <html>
 <head>
-    <title>Weather App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,12 +32,10 @@ title: Weather
 </head>
 <body>
     <div id="content">
-        <h1>Weather App</h1>
-        <button id="getWeatherButton">Get Weather Data</button>
+        <button id="getWeatherButton">Get Current Weather</button>
         <div id="weatherData"></div>
         <div id="clothingAdvice"></div>
     </div>
-
     <script>
         document.getElementById("getWeatherButton").addEventListener("click", function() {
             const latitude = 33.01479454987898;
