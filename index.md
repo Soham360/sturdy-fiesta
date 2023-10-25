@@ -70,10 +70,11 @@ title: Home
             const currentDay = new Date().getDay();
             switch (currentDay) {
                 case 3: // Wednesday
-                    for (let i = 0; i < wednesdaySchedule.length; i++) {
-                        wednesdaySchedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
-                    }
-                    break;
+                    wednesdaySchedule[0].class = document.getElementById(`classPeriod${0 + 1}`).value;
+                    wednesdaySchedule[1].class = document.getElementById(`classPeriod${1 + 1}`).value;
+                    wednesdaySchedule[3].class = document.getElementById(`classPeriod${2 + 1}`).value;
+                    wednesdaySchedule[5].class = document.getElementById(`classPeriod${3 + 1}`).value;
+                    wednesdaySchedule[6].class = document.getElementById(`classPeriod${4 + 1}`).value;
                 case 5: // Friday
                     for (let i = 0; i < fridaySchedule.length; i++) {
                         fridaySchedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
