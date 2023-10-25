@@ -69,21 +69,25 @@ title: Home
         function updateSchedule() {
             const currentDay = new Date().getDay();
             switch (currentDay) {
-                case 3: // Wednesday
+                case 3: // WednesdayfridaySchedule
                     wednesdaySchedule[0].class = document.getElementById(`classPeriod${0 + 1}`).value;
                     wednesdaySchedule[1].class = document.getElementById(`classPeriod${1 + 1}`).value;
                     wednesdaySchedule[3].class = document.getElementById(`classPeriod${2 + 1}`).value;
                     wednesdaySchedule[5].class = document.getElementById(`classPeriod${3 + 1}`).value;
                     wednesdaySchedule[6].class = document.getElementById(`classPeriod${4 + 1}`).value;
                 case 5: // Friday
-                    for (let i = 0; i < fridaySchedule.length; i++) {
-                        fridaySchedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
-                    }
+                    fridaySchedule[0].class = document.getElementById(`classPeriod${0 + 1}`).value;
+                    fridaySchedule[1].class = document.getElementById(`classPeriod${1 + 1}`).value;
+                    fridaySchedule[3].class = document.getElementById(`classPeriod${2 + 1}`).value;
+                    fridaySchedule[5].class = document.getElementById(`classPeriod${3 + 1}`).value;
+                    fridaySchedule[6].class = document.getElementById(`classPeriod${4 + 1}`).value;
                     break;
                 default:
-                    for (let i = 0; i < commonSchedule.length; i++) {
-                        commonSchedule[i].class = document.getElementById(`classPeriod${i + 1}`).value;
-                    }
+                    commonSchedule[0].class = document.getElementById(`classPeriod${0 + 1}`).value;
+                    commonSchedule[1].class = document.getElementById(`classPeriod${1 + 1}`).value;
+                    commonSchedule[3].class = document.getElementById(`classPeriod${2 + 1}`).value;
+                    commonSchedule[5].class = document.getElementById(`classPeriod${3 + 1}`).value;
+                    commonSchedule[7].class = document.getElementById(`classPeriod${4 + 1}`).value;
                     break;
             }
             updateClock();
