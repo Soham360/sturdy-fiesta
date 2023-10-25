@@ -36,7 +36,7 @@ Pluto is a web application designed to assist students in managing their daily s
   - Authentication (for secure login)
 
 - **External APIs:**
-  - Weather API (e.g., OpenWeatherMap) for weather data
+  - National Weather Service API for weather data
   
 ## Usage
 
