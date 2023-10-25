@@ -18,14 +18,8 @@ title: Weather
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
-                    // Extract and display relevant data
-                    const properties = data.properties;
-                    const forecast = properties.forecast;
-                    const weatherDataElement = document.getElementById("weatherData");
-                    weatherDataElement.innerHTML = `
-                        <p>Forecast URL: ${forecast}</p>
-                    `;
                     // Get additional weather data
+                    const forecast = data.properties.forecast;
                     fetch(forecast)
                         .then(response => response.json())
                         .then(forecastData => {
@@ -34,9 +28,9 @@ title: Weather
                             const weatherConditions = currentWeather.shortForecast;
                             const precipitation = currentWeather.detailedForecast.includes('precipitation');
                             // Display temperature, weather conditions, and precipitation
-                            const clothingAdviceElement = document.getElementById("clothingAdvice");
-                            clothingAdviceElement.innerHTML = `
-                                <p>Temperature: ${temperature}</p>
+                            const weatherDataElement = document.getElementById("weatherData");
+                            weatherDataElement.innerHTML = `
+                                <p>Temperature: ${temperature}°F</p>
                                 <p>Weather Conditions: ${weatherConditions}</p>
                                 <p>Chance of Precipitation: ${precipitation ? 'Yes' : 'No'}</p>
                                 <p>${getClothingAdvice(temperature, weatherConditions, precipitation)}</p>
@@ -46,16 +40,16 @@ title: Weather
                             console.error("An error occurred:", error);
                         });
                 })
-                .catch(error => {
+                .catch error => {
                     console.error("An error occurred:", error);
                 });
         });
         function getClothingAdvice(temperature, weatherConditions, precipitation) {
             if (temperature >= 80) {
                 return "It's hot! Wear light and breathable clothing like short sleeves and shorts. Don't forget sunscreen!";
-            } else if (temperature >= 60) {
+            } else if (temperature >= 70) {
                 return "It's warm. Consider wearing short sleeves and pants or a skirt.";
-            } else if (temperature >= 50) {
+            } else if (temperature >= 60) {
                 if (precipitation) {
                     return "It's mild and may rain. A light jacket or sweater with an umbrella might be a good idea.";
                 } else {
