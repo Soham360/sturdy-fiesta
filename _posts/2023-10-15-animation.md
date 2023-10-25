@@ -1,6 +1,11 @@
 ---
-layout: base
+layout: post
 title: Cube Animation
+toc: true
+comments: false
+description: Cube Moving 
+type: hacks
+courses: { compsci: {week: 0} }
 ---
 
 
