@@ -9,6 +9,7 @@ title: Weather
 <body>
     <button id="getWeatherButton">Get Weather Data</button>
     <div id="weatherData"></div>
+    <div id="clothingAdvice"></div>
     <script>
         document.getElementById("getWeatherButton").addEventListener("click", function() {
             const latitude = 33.01479454987898;
@@ -17,7 +18,6 @@ title: Weather
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
-                    // Extract and display relevant data
                     const properties = data.properties;
                     const forecast = properties.forecast;
                     const forecastZone = properties.forecastZone;
@@ -26,11 +26,27 @@ title: Weather
                         <p>Forecast URL: ${forecast}</p>
                         <p>Forecast Zone: ${forecastZone}</p>
                     `;
+                    const temperature = data.properties.relativeLocation.properties.temperature.value;
+                    const clothingAdviceElement = document.getElementById("clothingAdvice");
+                    clothingAdviceElement.innerHTML = getClothingAdvice(temperature);
                 })
                 .catch(error => {
                     console.error("An error occurred:", error);
                 });
         });
+        function getClothingAdvice(temperature) {
+            if (temperature >= 80) {
+                return "It's hot! Wear light and breathable clothing like short sleeves and shorts. Don't forget sunscreen!";
+            } else if (temperature >= 60) {
+                return "It's warm. Consider wearing short sleeves and pants or a skirt.";
+            } else if (temperature >= 50) {
+                return "It's mild. A light jacket or sweater might be a good idea.";
+            } else if (temperature >= 40) {
+                return "It's cool. Wear long sleeves and pants. You may want to add a jacket.";
+            } else {
+                return "It's cold. Bundle up with a warm coat, gloves, and a scarf.";
+            }
+        }
     </script>
 </body>
 </html>
