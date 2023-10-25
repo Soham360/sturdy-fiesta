@@ -46,7 +46,8 @@ Pluto is a web application designed to assist students in managing their daily s
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [Apache License 2.0
+](LICENSE).
 
 ## Contact
 
