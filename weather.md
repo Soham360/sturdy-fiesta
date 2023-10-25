@@ -40,7 +40,7 @@ title: Weather
                             console.error("An error occurred:", error);
                         });
                 })
-                .catch error => {
+                .catch(error => {
                     console.error("An error occurred:", error);
                 });
         });
