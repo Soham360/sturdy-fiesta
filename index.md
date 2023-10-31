@@ -7,25 +7,95 @@ title: Home
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Bell Schedule Tracker</title>
+    <style>
+        /* Add styles for the body and overall layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+/* Add styles for the schedule input form */
+label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+/* Add styles for the clock and date display */
+#time, #date {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+/* Add styles for the schedule results */
+#scheduleResults {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 300px;
+}
+#scheduleResults p {
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+}
+/* Add custom styles for the class labels */
+#scheduleResults .Break {
+    color: #e74c3c;
+}
+#scheduleResults .Lunch {
+    color: #f39c12;
+}
+#scheduleResults .Office {
+    color: #27ae60;
+}
+    </style>
 </head>
 <body>
-    <h2>Enter Your School Schedule</h2>
+    <h2 style="color:white;">Enter Your School Schedule</h2>
     <div>
-        <label for="classPeriod1">Period 1:</label>
-        <input type="text" id="classPeriod1"><br>
+        <label for="classPeriod1" >Period 1:</label>
+        <input type="text" id="classPeriod1" style="color:blue;"><br>
         <label for="classPeriod2">Period 2:</label>
-        <input type="text" id="classPeriod2"><br>
-        <label for="classPeriod3">Period 3:</label>
-        <input type="text" id="classPeriod3"><br>
-        <label for="classPeriod4">Period 4:</label>
-        <input type="text" id="classPeriod4"><br>
-        <label for="classPeriod5">Period 5:</label>
-        <input type="text" id="classPeriod5"><br>
+        <input type="text" id="classPeriod2" style="color:blue;"><br>
+        <label for="classPeriod3" >Period 3:</label>
+        <input type="text" id="classPeriod3" style="color:blue;"><br>
+        <label for="classPeriod4" >Period 4:</label>
+        <input type="text" id="classPeriod4" style="color:blue;"><br>
+        <label for="classPeriod5" > Period 5:</label>
+        <input type="text" id="classPeriod5" style="color:blue;"><br>
         <button onclick="updateSchedule()">Update Schedule</button>
     </div>
     <div id="time"></div>
     <div id="date"></div>
-    <div id="scheduleResults"></div>
+    <div id="scheduleResults" style="color:blue;"></div>
     <script>
         const commonSchedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
