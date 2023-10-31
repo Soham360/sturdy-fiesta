@@ -35,6 +35,13 @@ title: Weather
         <button id="getWeatherButton">Get Current Weather</button>
         <div id="weatherData"></div>
         <div id="clothingAdvice"></div>
+        <div id="clothingImage" style="text-align: center;">
+    <img id="hotImage" src="https://github.com/DasMoge124/students/assets/75040379/37eedd64-48c1-45e7-ba55-75108b851efd" alt="Hot Weather" style="display: none; margin: 0 auto;">
+    <img id="warmImage" src="https://github.com/DasMoge124/students/assets/75040379/37eedd64-48c1-45e7-ba55-75108b851efd" alt="Warm Weather" style="display: none; margin: 0 auto;">
+    <img id="mildImage" src="https://github.com/DasMoge124/students/assets/75040379/37eedd64-48c1-45e7-ba55-75108b851efd" alt="Mild Weather" style="display: none; margin: 0 auto;">
+    <img id="coolImage" src="https://github.com/DasMoge124/students/assets/75040379/37eedd64-48c1-45e7-ba55-75108b851efd" alt="Cool Weather" style="display: none; margin: 0 auto;">
+    <img id="coldImage" src="https://github.com/DasMoge124/students/assets/75040379/37eedd64-48c1-45e7-ba55-75108b851efd" alt="Cold Weather" style="display: none; margin: 0 auto;">
+</div>
     </div>
     <script>
         document.getElementById("getWeatherButton").addEventListener("click", function() {
@@ -61,6 +68,29 @@ title: Weather
                                 <p>Chance of Precipitation: ${precipitation ? 'Yes' : 'No'}</p>
                                 <p>${getClothingAdvice(temperature, weatherConditions, precipitation)}</p>
                             `;
+                            // Show the corresponding image based on temperature range
+                            const hotImage = document.getElementById("hotImage");
+                            const warmImage = document.getElementById("warmImage");
+                            const mildImage = document.getElementById("mildImage");
+                            const coolImage = document.getElementById("coolImage");
+                            const coldImage = document.getElementById("coldImage");
+                            // Hide all images initially
+                            hotImage.style.display = "none";
+                            warmImage.style.display = "none";
+                            mildImage.style.display = "none";
+                            coolImage.style.display = "none";
+                            coldImage.style.display = "none";
+                            if (temperature >= 80) {
+                                hotImage.style.display = "block";
+                            } else if (temperature >= 70) {
+                                warmImage.style.display = "block";
+                            } else if (temperature >= 60) {
+                                mildImage.style.display = "block";
+                            } else if (temperature >= 40) {
+                                coolImage.style.display = "block";
+                            } else {
+                                coldImage.style.display = "block";
+                            }
                         })
                         .catch(error => {
                             console.error("An error occurred:", error);
