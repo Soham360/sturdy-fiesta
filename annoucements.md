@@ -14,7 +14,7 @@ title: Announcements
         max-width: 600px;
         margin: 10px auto;
         padding: 20px;
-        background-color: #444;
+        background-color: #153e8f;
         border-radius: 8px;
     }
     h1 {
@@ -30,7 +30,7 @@ title: Announcements
         border: none;
         border-radius: 4px;
         margin-right: 10px;
-        background-color: #555;
+        background-color: #ADD8E6;
         color: #fff;
     }
     button {
