@@ -1,11 +1,12 @@
 ---
-title: Account Login
+title: Account Sign Up
 layout: post
 ---
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Login</title>
+    <title>Account Sign Up</title>
     <style>
         .normal {
             background-color: #121212 !important;
@@ -26,7 +27,7 @@ layout: post
         }
         body {
             font-family: Arial, sans-serif;
-            background-color: #F2F2F2;
+            background-color: #f2f2f2;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -75,7 +76,7 @@ layout: post
             width: 60%;
             margin-left: 20%;
         }
-        #signUpButton {
+        #logInButton {
             display: flex;
             justify-content: center;
             width: 20%;
@@ -85,11 +86,17 @@ layout: post
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Login Screen -->
         <div id="loginScreen">
-            <form action="javascript:login_user()">
+            <form action="javascript:signUpRequest()">
+                <p id="name" class="normal">
+                    <label>Name:
+                        <input class="normal" type="text" name="legalName" id="legalName" required>
+                    </label>
+                </p>
                 <p id="email" class="normal">
                     <label>Email:
                         <input class="normal" type="text" name="uid" id="uid" required>
@@ -101,7 +108,7 @@ layout: post
                     </label>
                 </p>
                 <p id="logind" class="normal">
-                    <button>Login</button>
+                    <button>Sign Up</button>
                 </p>
             </form>
         </div>
@@ -111,60 +118,27 @@ layout: post
             <p>Welcome to your account. Your account details are displayed here.</p>
         </div>
     </div>
-    <button id="signUpButton" onclick="signUpSwitch()">Sign Up</button>
+    <button id="logInButton" onclick="logInSwitch()">Log In</button>
 </body>
+
 <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Check if the user is logged in (You need to define your own logic for this)
-            if (localStorage.getItem("loggedIn") === "true") {
-                showAccountDetails();
-            } else {
-                showLoginScreen();
-            }
-        });
-        function showAccountDetails() {
-            document.getElementById("loginScreen").style.display = "none";
-            document.getElementById("signUpButton").style.display = "none";
-            document.getElementById("accountDetails").style.display = "block";
-            // Create and append the email and stock elements
-            const emailDiv = document.createElement("div");
-            emailDiv.innerHTML = "Email: " + localStorage.getItem("localEmail");
-            document.getElementById("accountDetails").appendChild(emailDiv);
-            const stockDiv = document.createElement("div");
-            stockDiv.innerHTML = "Saved Stocks";
-            document.getElementById("accountDetails").appendChild(stockDiv);
-            // Create a button element
-            const button = document.createElement('button');
-            button.innerText = 'LOG OUT';
-            button.addEventListener('click', () => {
-                // Remove the loggedIn flag from localStorage
-                localStorage.removeItem("localEmail");
-                localStorage.removeItem("localPassword");
-                localStorage.removeItem("loggedIn");
-                // Show the login screen
-                showLoginScreen();
-            });
-            // Append the logout button to the account details section
-            document.getElementById("accountDetails").appendChild(button);
-        }
-        function showLoginScreen() {
-            document.getElementById("loginScreen").style.display = "block";
-            document.getElementById("signUpButton").style.display = "block";
-            document.getElementById("accountDetails").style.display = "none";
-        }
-        function signUpSwitch() {
-            window.location.href = "/sturdy-fiesta/signup";
-        }
-        function login_user() {
-            // You can make a POST request here to your authentication endpoint
-            var url = "http://localhost:8765";
+    function logInSwitch() {
+        window.location.href = "/sturdy-fiesta/login";
+    }
+
+    function signUpUser() {
+        console.log("signUpUser() called");
+        var url = "http://localhost:8765";
+
             // Comment out next line for local testing
-            //  url = "https://no-papels.stu.nighthawkcodingsociety.com"; 
-            const login_url = url + '/authenticate';
+            // url = "https://no-papels.stu.nighthawkcodingsociety.com";
+            const login_url = url + '/api/person/post'; 
             const body = {
+                name: document.getElementById("legalName").value,
                 email: document.getElementById("uid").value,
                 password: document.getElementById("password").value,
             };
+
             console.log(JSON.stringify(body));
             const requestOptions = {
                 method: 'POST',
@@ -178,6 +152,7 @@ layout: post
                     "Access-Control-Allow-Origin": "*",
                 },
             };
+
             // Fetch JWT
             fetch(login_url, requestOptions)
                 .then(response => {
@@ -188,13 +163,34 @@ layout: post
                     }
                     // Success!!!
                     // Redirect to Database location
-                    localStorage.setItem("localEmail", document.getElementById("uid").value);
-                    localStorage.setItem("localPassword", document.getElementById("password").value);
-                    console.log(localStorage.getItem("localEmail"));
-                    console.log(localStorage.getItem("localPassword"));
-                    localStorage.setItem("loggedIn", "true");
-                    showAccountDetails();
+                    console.log("success")
                     window.location.href = "/sturdy-fiesta/login";
                 });
-        }
-    </script>
+    }
+
+    function signUpRequest() {
+        var requestOptions = {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'include',
+        };
+
+        let fetchName = document.getElementById("legalName").value
+        let fetchEmail = document.getElementById("uid").value
+        let fetchPassword = document.getElementById("password").value
+
+        fetch(`https://no-papels.stu.nighthawkcodingsociety.com/api/person/post?email=${fetchEmail}&password=${fetchPassword}@123&name=${fetchName}`, requestOptions)
+        .then(response => {
+            if (!response.ok) {
+                const errorMsg = 'Login error: ' + response.status;
+                console.log(errorMsg);
+                return;
+            }
+            // Success!!!
+            // Redirect to Database location
+            console.log("success")
+            window.location.href = "/sturdy-fiesta/login";
+        });
+    }
+</script>
