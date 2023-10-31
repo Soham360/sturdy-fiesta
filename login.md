@@ -6,7 +6,7 @@ layout: post
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Login</title>
-    <style>
+<style>
         .normal {
             background-color: #121212 !important;
             color: white !important;
@@ -38,6 +38,16 @@ layout: post
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         .normal {
             background-color: #121212;
