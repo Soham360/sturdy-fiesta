@@ -64,44 +64,88 @@ title: Schedule
         <tbody id="eventList">
         </tbody>
     </table>
-    <script>
-        const events = [];
-        function showMessage(message) {
-            const messageDiv = document.getElementById('message');
-            messageDiv.innerHTML = message;
+<script>
+    const events = [];
+    // Fetch events from the backend when the page loads
+    window.onload = function() {
+        fetchEvents();
+    }
+    function showMessage(message) {
+        const messageDiv = document.getElementById('message');
+        messageDiv.innerHTML = message;
+    }
+    function planEvent() {
+        const eventName = document.getElementById('eventName').value;
+        const eventDate = document.getElementById('eventDate').value;
+        const eventTime = document.getElementById('eventTime').value;
+        if (!eventName || !eventDate || !eventTime) {
+            alert('Please enter event details.');
+            return;
         }
-        function planEvent() {
-            const eventName = document.getElementById('eventName').value;
-            const eventDate = document.getElementById('eventDate').value;
-            const eventTime = document.getElementById('eventTime').value;
-            if (!eventName || !eventDate || !eventTime) {
-                alert('Please enter event details.');
-                return;
+        // Create an object for the new event
+        const newEvent = {
+            name: eventName,
+            date: eventDate,
+            time: eventTime
+        };
+        // Send a POST request to the backend to add the event
+        fetch('/api/schedule/addEvent', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newEvent)
+        })
+        .then(response => {
+            if (response.status === 201) {
+                return response.json();
+            } else {
+                throw new Error('Failed to add event.');
             }
-            events.push({ name: eventName, date: eventDate, time: eventTime });
+        })
+        .then(data => {
+            events.push(newEvent);
             displayEvents();
             document.getElementById('eventName').value = '';
             document.getElementById('eventDate').value = '';
             document.getElementById('eventTime').value = '';
-            showMessage('Event planned successfully.');
+            showMessage(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showMessage('Failed to add the event.');
+        });
+    }
+    function fetchEvents() {
+        // Send a GET request to the backend to fetch events
+        fetch('/api/schedule/events')
+        .then(response => response.json())
+        .then(data => {
+            events = data;
+            displayEvents();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    function displayEvents() {
+        const eventList = document.getElementById('eventList');
+        eventList.innerHTML = '';
+        for (const event of events) {
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            nameCell.textContent = event.name;
+            const dateCell = document.createElement('td');
+            dateCell.textContent = event.date;
+            const timeCell = document.createElement('td');
+            timeCell.textContent = event.time;
+            row.appendChild(nameCell);
+            row.appendChild(dateCell);
+            row.appendChild(timeCell);
+            eventList.appendChild(row);
         }
-        function displayEvents() {
-            const eventList = document.getElementById('eventList');
-            eventList.innerHTML = '';
-            for (const event of events) {
-                const row = document.createElement('tr');
-                const nameCell = document.createElement('td');
-                nameCell.textContent = event.name;
-                const dateCell = document.createElement('td');
-                dateCell.textContent = event.date;
-                const timeCell = document.createElement('td');
-                timeCell.textContent = event.time;
-                row.appendChild(nameCell);
-                row.appendChild(dateCell);
-                row.appendChild(timeCell);
-                eventList.appendChild(row);
-            }
-        }
-    </script>
+    }
+</script>
+
 </body>
 </html>
