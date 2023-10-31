@@ -138,6 +138,23 @@ button:hover {
             const timeLeft = Math.max(0, (end - current) / 60000);
             return timeLeft;
         }
+            function postScheduleData(scheduleData) {
+        fetch('http://localhost:8765/api/schedule', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(scheduleData)
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // log the response message
+            // You can perform any additional actions here after successful posting
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
         function updateSchedule() {
             const currentDay = new Date().getDay();
             switch (currentDay) {
@@ -164,6 +181,18 @@ button:hover {
             }
             updateClock();
         }
+            function getSchedule() {
+        fetch('http://localhost:8765/api/schedule')
+        .then(response => response.json())
+        .then(data => {
+            // Use the retrieved schedule data as needed
+            console.log('Retrieved schedule data:', data);
+            // You can perform any additional actions here after successful retrieval
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
         function updateClock() {
     const now = new Date();
     const hours = now.getHours();

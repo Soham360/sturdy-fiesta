@@ -28,7 +28,7 @@
             justify-content: center;
         }
         .container {
-            background-color: grey;
+            background-color: white;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -57,6 +57,16 @@
             border-radius: 5px;
             cursor: pointer;
             width: 50%;
+        }
+                .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         .normal button:hover {
             background-color: #333;
@@ -113,7 +123,7 @@
             <p>Welcome to your account. Your account details are displayed here.</p>
         </div>
     </div>
-    <button id="logInButton" onclick="logInSwitch()">Log In</button>
+    <button id="logInButton" class="button" onclick="logInSwitch()">Log In</button>
 </body>
 
 <script>

@@ -32,7 +32,7 @@ layout: post
             justify-content: center;
         }
         .container {
-            background-color: grey;
+            background-color: white;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -121,7 +121,7 @@ layout: post
             <p>Welcome to your account. Your account details are displayed here.</p>
         </div>
     </div>
-    <button id="signUpButton" onclick="signUpSwitch()">Sign Up</button>
+    <button id="signUpButton" class="button" onclick="signUpSwitch()">Sign Up</button>
 </body>
 <script>
         document.addEventListener("DOMContentLoaded", function () {
