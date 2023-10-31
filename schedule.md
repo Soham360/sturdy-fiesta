@@ -13,6 +13,8 @@ title: Schedule
         style="color:blue;"
     }.td{
         style="color:blue;"
+    }.title{
+        style="color:white;"
     }
 </style>
 <html>
@@ -22,7 +24,7 @@ title: Schedule
 <body>
     <table border="1">
         <tr>
-            <td colspan="2" align="center">Customizable Event Schedule</td>
+            <td colspan="2" align="center" id="title" style="color:white;" >Customizable Event Schedule</td>
         </tr>
         <tr>
             <td colspan="2">Enter Event Details:</td>
@@ -54,7 +56,7 @@ title: Schedule
     </table>
     <table border="1">
         <tr>
-            <td colspan="3" align="center">Scheduled Events</td>
+            <td colspan="3" align="center" style="color:white;">Scheduled Events</td>
         </tr>
         <tr>
             <td>Event Name</td>
