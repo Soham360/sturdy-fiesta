@@ -9,79 +9,78 @@ title: Home
     <div id="date" style="text-align: center; font-size: 20px;"></div>
     <title>School Bell Schedule Tracker</title>
     <style>
-        /* Add styles for the body and overall layout */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
-h2 {
-    text-align: center;
-    color: #333;
-}
-/* Add styles for the schedule input form */
-label {
-    display: block;
-    margin: 10px 0;
-    font-weight: bold;
-}
-input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #0056b3;
-}
-/* Add styles for the clock and date display */
-#time, #date {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 20px;
-}
-/* Add styles for the schedule results */
-#scheduleResults {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 20px auto;
-    max-width: 300px;
-}
-#scheduleResults p {
-    margin: 0;
-    padding: 5px 0;
-    border-bottom: 1px solid #ccc;
-    font-size: 14px;
-}
-/* Add custom styles for the class labels */
-#scheduleResults .Break {
-    color: #e74c3c;
-}
-#scheduleResults .Lunch {
-    color: #f39c12;
-}
-#scheduleResults .Office {
-    color: #27ae60;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #time, #date {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #scheduleResults {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            /* margin: 20px auto; */
+            max-width: 50%;
+        }
+        #scheduleResults p {
+            margin: 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #ccc;
+            font-size: 14px;
+        }
+        #time, #date {
+            display: inline-block;
+            align: center;
+        }
+        #inputSchedule, #scheduleResults {
+            display: inline-block;
+            width: 49%;
+        }
+        #inputSchedule {
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
+    <div id="time"></div>
+    <div id="date"></div>
     <h2 style="color:white;">Enter Your School Schedule</h2>
-    <div>
+    <div id="inputSchedule">
         <label for="classPeriod1" >Period 1:</label>
         <input type="text" id="classPeriod1" style="color:blue;"><br>
         <label for="classPeriod2">Period 2:</label>
@@ -94,10 +93,8 @@ button:hover {
         <input type="text" id="classPeriod5" style="color:blue;"><br>
         <button onclick="updateSchedule()">Update Schedule</button>
     </div>
-    <div id="time"></div>
-    <div id="date"></div>
     <div id="scheduleResults" style="color:blue;"></div>
-    <div id="time" style="text-align: center; font-size: 20px;"></div>
+    <!-- <div id="time" style="text-align: center; font-size: 20px;"></div> -->
     <script>
         const commonSchedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
