@@ -1,16 +1,17 @@
-
-@import "minima/sturdy-fiesta-styles";   
-
-
-@import "minima/fastpages-dracula-highlight"; 
-
+@import "minima/sturdy-fiesta-styles";
+@import "minima/fastpages-dracula-highlight";
 
 .site-header {
     background-color: #34b060;
     color: white;
-    }
-    
-    main.page-content {
-        background-color: #054f1b;
-        color: white;
-    }
+}
+
+main.page-content {
+    background-color: #054f1b;
+    color: white;
+}
+
+.site-footer {
+    background-color: #054f1b; /* Match the background color of the main content */
+    color: white; /* You can specify the text color for the footer here */
+}
