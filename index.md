@@ -6,6 +6,7 @@ title: Home
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div id="date" style="text-align: center; font-size: 20px;"></div>
     <title>School Bell Schedule Tracker</title>
     <style>
         /* Add styles for the body and overall layout */
@@ -96,6 +97,7 @@ button:hover {
     <div id="time"></div>
     <div id="date"></div>
     <div id="scheduleResults" style="color:blue;"></div>
+    <div id="time" style="text-align: center; font-size: 20px;"></div>
     <script>
         const commonSchedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
