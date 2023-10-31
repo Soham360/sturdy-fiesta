@@ -131,7 +131,6 @@ layout: post
             emailDiv.innerHTML = "Email: " + localStorage.getItem("localEmail");
             document.getElementById("accountDetails").appendChild(emailDiv);
             const stockDiv = document.createElement("div");
-            stockDiv.innerHTML = "Saved Stocks";
             document.getElementById("accountDetails").appendChild(stockDiv);
             // Create a button element
             const button = document.createElement('button');
