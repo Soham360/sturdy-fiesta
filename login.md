@@ -166,7 +166,7 @@ layout: base
         }
         function login_user() {
             // You can make a POST request here to your authentication endpoint
-            var url = "https://no-papels.stu.nighthawkcodingsociety.com/";
+            var url = "https://no-papels.stu.nighthawkcodingsociety.com";
             // Comment out next line for local testing
             //  url = "https://no-papels.stu.nighthawkcodingsociety.com"; 
             const login_url = url + '/authenticate';
