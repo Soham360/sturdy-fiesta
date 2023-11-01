@@ -6,7 +6,6 @@ title: Home
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div id="date" style="text-align: center; font-size: 20px;"></div>
     <title>School Bell Schedule Tracker</title>
     <style>
         body {
@@ -44,18 +43,19 @@ title: Home
         button:hover {
             background-color: #0056b3;
         }
-        #time, #date {
+        #datetime {
             text-align: center;
             font-size: 20px;
             margin-top: 20px;
+            display: block;
         }
         #scheduleResults {
             background-color: #fff;
-            border: 1px solid #ccc;
+            border: 0.5px solid #ccc;
             border-radius: 5px;
             padding: 10px;
-            /* margin: 20px auto; */
             max-width: 50%;
+            margin-top: 40px;
         }
         #scheduleResults p {
             margin: 0;
@@ -63,13 +63,10 @@ title: Home
             border-bottom: 1px solid #ccc;
             font-size: 14px;
         }
-        #time, #date {
-            display: inline-block;
-            align: center;
-        }
         #inputSchedule, #scheduleResults {
             display: inline-block;
             width: 49%;
+            vertical-align: top;
         }
         #inputSchedule {
             margin: 20px auto;
@@ -77,8 +74,10 @@ title: Home
     </style>
 </head>
 <body>
-    <div id="time"></div>
-    <div id="date"></div>
+    <div id="datetime">
+        <div id="date"></div>
+        <div id="time"></div>
+    </div>
     <h2 style="color:white;">Enter Your School Schedule</h2>
     <div id="inputSchedule">
         <label for="classPeriod1" >Period 1:</label>
