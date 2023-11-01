@@ -1,6 +1,6 @@
 ---
 title: Account Login
-layout: post
+layout: base
 ---
 <head>
     <meta charset="UTF-8">
