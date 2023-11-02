@@ -56,11 +56,11 @@ title: Weather
         <div id="weatherData" class = "text"></div>
         <div id="clothingAdvice"></div>
          <div id="clothingImage" style="text-align: center;">
-    <img id="hotImage" src="https://github.com/DasMoge124/students/assets/75040379/37eedd64-48c1-45e7-ba55-75108b851efd" alt="Hot Weather" style="display: none; margin: 0 auto; width: 50%;">
-    <img id="warmImage" src="https://github.com/AniCricKet/musical-guacamole/assets/91163802/97edf9f8-0114-440f-b383-a5f327648cee" alt="Warm Weather" style="display: none; margin: 0 auto; width: 50%;">
-    <img id="mildImage" src="https://github.com/AniCricKet/musical-guacamole/assets/91163802/6104c0fe-2ac7-435b-bf75-1e1612592b5b" alt="Mild Weather" style="display: none; margin: 0 auto; width: 50%;">
-    <img id="coolImage" src="https://github.com/AniCricKet/musical-guacamole/assets/91163802/7159ad70-8fb9-40b6-9bae-e1fa1b6ff07d" alt="Cool Weather" style="display: none; margin: 0 auto; width: 50%;">
-    <img id="coldImage" src="https://github.com/AniCricKet/musical-guacamole/assets/91163802/1afab2be-b2fe-42bf-85d1-c9c83cab7952" alt="Cold Weather" style="display: none; margin: 0 auto; width: 50%;">
+    <img id="hotImage" src="https://raw.githubusercontent.com/Soham360/sturdy-fiesta/main/images/279477144-37eedd64-48c1-45e7-ba55-75108b851efd.png" alt="Hot Weather" style="display: none; margin: 0 auto; width: 50%;">
+    <img id="warmImage" src="https://github.com/Soham360/sturdy-fiesta/blob/main/images/279540917-7159ad70-8fb9-40b6-9bae-e1fa1b6ff07d.png?raw=true" alt="Warm Weather" style="display: none; margin: 0 auto; width: 50%;">
+    <img id="mildImage" src="https://github.com/Soham360/sturdy-fiesta/blob/main/images/279541100-97edf9f8-0114-440f-b383-a5f327648cee.png?raw=true" alt="Mild Weather" style="display: none; margin: 0 auto; width: 50%;">
+    <img id="coolImage" src="https://github.com/Soham360/sturdy-fiesta/blob/main/images/279540782-6104c0fe-2ac7-435b-bf75-1e1612592b5b.png?raw=true" alt="Cool Weather" style="display: none; margin: 0 auto; width: 50%;">
+    <img id="coldImage" src="https://github.com/Soham360/sturdy-fiesta/blob/main/images/279541006-1afab2be-b2fe-42bf-85d1-c9c83cab7952.png?raw=true" alt="Cold Weather" style="display: none; margin: 0 auto; width: 50%;">
 
 </div>
     </div>
