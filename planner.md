@@ -2,7 +2,6 @@
 layout: base
 title: Planner
 ---
-## Student Planner
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,26 +9,74 @@ title: Planner
     <title>Student Tasks</title>
     <style>
         /* CSS styles for the interface */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
         .eventList {
             color: black;
-            background-color: white; /* Optional background color for emphasis */
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         .eventName {
             color: blue;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
         }
         .td {
             color: blue;
+            background-color: #1E90FF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: white;
+        }
+        .td:hover {
+            background-color: #0077B6;
         }
         .title {
             color: white;
+            background-color: #0077B6;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
         }
         .delete-button {
-            color: red;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: #B22222;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0077B6;
+            color: white;
+        }
+        td {
             background-color: white;
         }
     </style>
 </head>
-<body>
     <table border="1">
         <tr>
             <td colspan="2" align="center" id="title" class="title">Customizable Event Schedule</td>
@@ -64,14 +111,14 @@ title: Planner
     </table>
     <table border="1">
         <tr>
-            <td colspan="3" align="center" class="title">Scheduled Events</td>
+            <td colspan="5" align="center" class="title">Scheduled Events</td>
         </tr>
         <tr>
-            <td>Task</td>
-            <td>Event Date</td>
-            <td>Event Time</td>
-            <td>Done</td>
-            <td>Delete</td>
+            <th>Task</th>
+            <th>Event Date</th>
+            <th>Event Time</th>
+            <th>Done</th>
+            <th>Delete</th>
         </tr>
         <tbody id="task-list" class="eventList">
         </tbody>
@@ -164,5 +211,4 @@ title: Planner
             return "";
         }
     </script>
-</body>
 </html>
