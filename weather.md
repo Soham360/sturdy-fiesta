@@ -50,7 +50,9 @@ title: Weather
     </div>
     <script>
         document.getElementById("getWeatherButton").addEventListener("click", function() {
-            const apiUrl = `https://no-papels.stu.nighthawkcodingsociety.com/api/weather/daily`;
+            const latitude = 32.715736;
+            const longitude = -117.161087;
+            const apiUrl = `https://api.weather.gov/points/${latitude},${longitude}`;
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
