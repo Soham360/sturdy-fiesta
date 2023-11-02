@@ -1,12 +1,12 @@
 ---
 title: Account Login
-layout: post
+layout: base
 ---
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Login</title>
-    <style>
+<style>
         .normal {
             background-color: #121212 !important;
             color: white !important;
@@ -32,12 +32,22 @@ layout: post
             justify-content: center;
         }
         .container {
-            background-color: grey;
+            background-color: white;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         .normal {
             background-color: #121212;
@@ -111,7 +121,7 @@ layout: post
             <p>Welcome to your account. Your account details are displayed here.</p>
         </div>
     </div>
-    <button id="signUpButton" onclick="signUpSwitch()">Sign Up</button>
+    <button id="signUpButton" class="button" onclick="signUpSwitch()">Sign Up</button>
 </body>
 <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -131,7 +141,6 @@ layout: post
             emailDiv.innerHTML = "Email: " + localStorage.getItem("localEmail");
             document.getElementById("accountDetails").appendChild(emailDiv);
             const stockDiv = document.createElement("div");
-            stockDiv.innerHTML = "Saved Stocks";
             document.getElementById("accountDetails").appendChild(stockDiv);
             // Create a button element
             const button = document.createElement('button');
@@ -157,7 +166,7 @@ layout: post
         }
         function login_user() {
             // You can make a POST request here to your authentication endpoint
-            var url = "http://localhost:8765";
+            var url = "https://no-papels.stu.nighthawkcodingsociety.com";
             // Comment out next line for local testing
             //  url = "https://no-papels.stu.nighthawkcodingsociety.com"; 
             const login_url = url + '/authenticate';
