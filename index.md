@@ -74,6 +74,9 @@ title: Home
     </style>
 </head>
 <body>
+    <div style="display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center;">
+        <h1 id="typewriter"></h1>
+    </div>
     <div id="datetime">
         <div id="date"></div>
         <div id="time"></div>
@@ -95,6 +98,17 @@ title: Home
     <div id="scheduleResults" style="color:blue;"></div>
     <!-- <div id="time" style="text-align: center; font-size: 20px;"></div> -->
     <script>
+         var i = 0;
+    var text = "Welcome to Project Pluto! 😱🤯🤩";
+    var speed = 150; // Adjust typing speed (lower value = faster)
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("typewriter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+    typeWriter();
         const commonSchedule = [
             { period: 'Period 1', startTime: '08:35', endTime: '09:44', duration: 69, class: '' },
             { period: 'Period 2', startTime: '09:49', endTime: '10:58', duration: 69, class: '' },
