@@ -93,6 +93,21 @@ layout: base
             margin-left: 40%;
             background-color: light blue;
         }
+            ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #333;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #a0daf2;
+        border-radius: 4px;
+        width: 4px; 
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #FFF;
+        width: 4px;
+    }
     </style>
 </head>
 <body>
@@ -118,7 +133,7 @@ layout: base
         <!-- Account Details Screen (Initially Hidden) -->
         <div id="accountDetails" style="display: none;">
             <!-- Account details will go here -->
-            <p>Welcome to your account. Your account details are displayed here.</p>
+            <p>Welcome to your account!</p>
         </div>
     </div>
     <button id="signUpButton" class="button" onclick="signUpSwitch()">Sign Up</button>
@@ -166,7 +181,7 @@ layout: base
         }
         function login_user() {
             // You can make a POST request here to your authentication endpoint
-            var url = "https://no-papels.stu.nighthawkcodingsociety.com";
+            var url = "http://localhost:8765";
             // Comment out next line for local testing
             //  url = "https://no-papels.stu.nighthawkcodingsociety.com"; 
             const login_url = url + '/authenticate';

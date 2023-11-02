@@ -44,6 +44,21 @@ title: Announcements
     button:hover {
         background-color: #0056b3;
     }
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #333;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #a0daf2;
+        border-radius: 4px;
+        width: 4px; 
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #FFF;
+        width: 4px;
+    }
 </style>
 <body>
     <div class="container">
@@ -57,16 +72,36 @@ title: Announcements
     <script src="script.js"></script>
 </body>
 <script>
-    function postAnnouncement() {
+// Get the announcements from local storage
+var announcements = JSON.parse(localStorage.getItem('announcements'));
+if (!announcements) {
+    announcements = [];
+}
+function postAnnouncement() {
     var announcementText = document.getElementById('announcementText').value;
     if (announcementText.trim() !== '') {
-        var announcementsDiv = document.getElementById('announcements');
-        var announcementElement = document.createElement('div');
-        announcementElement.className = 'announcement';
-        announcementElement.innerText = announcementText;
-        announcementsDiv.appendChild(announcementElement);
+        var announcement = {
+            text: announcementText,
+            timestamp: Date.now(),
+            email: (localStorage.getItem("localEmail"))
+        };
+        announcements.push(announcement);
+        localStorage.setItem('announcements', JSON.stringify(announcements));
+        renderAnnouncements();
         document.getElementById('announcementText').value = '';
     }
 }
+function renderAnnouncements() {
+    var announcementsDiv = document.getElementById('announcements');
+    announcementsDiv.innerHTML = '';
+    for (var i = 0; i < announcements.length; i++) {
+        var announcement = announcements[i];
+        var announcementElement = document.createElement('div');
+        announcementElement.className = 'announcement';
+        announcementElement.innerHTML = announcement.text + ' ~ ' + announcement.email + '<br> --------------------------------------------------------------------------------------------------';
+        announcementsDiv.appendChild(announcementElement);
+    }
+}
+renderAnnouncements();
 </script>
 </html>
