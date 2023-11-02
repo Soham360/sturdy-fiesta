@@ -1,5 +1,8 @@
-## Schedule
-- This is the schedule for our project!!!
+---
+layout: base
+title: Planner
+---
+## Student Planner
 <style>
     .eventList {
             color: white;
