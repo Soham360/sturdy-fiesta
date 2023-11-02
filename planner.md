@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+---
+layout: base
+title: Planner
+---
+## Student Planner
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +11,8 @@
     <style>
         /* CSS styles for the interface */
         .eventList {
-            color: white;
-            background-color: red; /* Optional background color for emphasis */
+            color: black;
+            background-color: white; /* Optional background color for emphasis */
         }
         .eventName {
             color: blue;
@@ -18,6 +22,10 @@
         }
         .title {
             color: white;
+        }
+        .delete-button {
+            color: red;
+            background-color: white;
         }
     </style>
 </head>
@@ -59,9 +67,11 @@
             <td colspan="3" align="center" class="title">Scheduled Events</td>
         </tr>
         <tr>
-            <td>Event Name</td>
+            <td>Task</td>
             <td>Event Date</td>
             <td>Event Time</td>
+            <td>Done</td>
+            <td>Delete</td>
         </tr>
         <tbody id="task-list" class="eventList">
         </tbody>
@@ -76,10 +86,15 @@
             tasks.forEach((task, index) => {
                 const listItem = document.createElement("tr");
                 listItem.innerHTML = `
-                    <td>${index + 1}. ${task.name}</td>
+                    <td>${task.name}</td>
                     <td>${task.date}</td>
                     <td>${task.time}</td>
+                    <td><input type="checkbox" id="doneCheckbox${index}" onchange="markTaskAsDone(${index})"></td>
+                    <td><button onclick="deleteTask(${index})" class="delete-button">Delete</button></td>
                 `;
+                if (task.isDone) {
+                    listItem.querySelector(`#doneCheckbox${index}`).checked = true;
+                }
                 taskList.appendChild(listItem);
             });
         }
@@ -92,12 +107,29 @@
             const taskDate = taskDateInput.value;
             const taskTime = taskTimeInput.value;
             if (taskName) {
-                tasks.push({ name: taskName, date: taskDate, time: taskTime });
+                tasks.push({ name: taskName, date: taskDate, time: taskTime, isDone: false });
                 updateTaskList();
                 taskNameInput.value = ""; // Clear the input field
                 taskDateInput.value = ""; // Clear the date input
                 taskTimeInput.value = ""; // Clear the time input
                 // Store tasks in a cookie
+                setCookie("tasks", JSON.stringify(tasks), 365);
+            }
+        }
+        // Function to delete a task by index
+        function deleteTask(index) {
+            if (index >= 0 && index < tasks.length) {
+                tasks.splice(index, 1);
+                updateTaskList();
+                // Update the stored tasks in the cookie
+                setCookie("tasks", JSON.stringify(tasks), 365);
+            }
+        }
+        // Function to mark a task as done
+        function markTaskAsDone(index) {
+            if (index >= 0 && index < tasks.length) {
+                tasks[index].isDone = !tasks[index].isDone;
+                // Update the stored tasks in the cookie
                 setCookie("tasks", JSON.stringify(tasks), 365);
             }
         }
