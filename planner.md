@@ -3,150 +3,78 @@ layout: base
 title: Planner
 ---
 ## Student Planner
-<style>
-    .eventList {
-            color: white;
-            background-color: red; /* Optional background color for emphasis */
-    }
-    .eventName{
-        style="color:blue;"
-    }.td{
-        style="color:blue;"
-    }.title{
-        style="color:white;"
-    }
-</style>
-<html>
+<html lang="en">
 <head>
-    <title>Customizable Event Schedule</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Tasks</title>
 </head>
 <body>
-    <table border="1">
-        <tr>
-            <td colspan="2" align="center" id="title" style="color:white;" >Customizable Event Schedule</td>
-        </tr>
-        <tr>
-            <td colspan="2">Enter Event Details:</td>
-        </tr>
-        <tr>
-            <td>
-                Event Name:
-                <input type="text" id="eventName" style="color:blue;">
-            </td>
-            <td>
-                Event Date:
-                <input type="date" id="eventDate">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Event Time:
-                <input type="time" id="eventTime">
-            </td>
-            <td>
-                <button onclick="planEvent()">Plan Event</button>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <div id="message"></div>
-            </td>
-        </tr>
-    </table>
-    <table border="1">
-        <tr>
-            <td colspan="3" align="center" style="color:white;">Scheduled Events</td>
-        </tr>
-        <tr>
-            <td>Event Name</td>
-            <td>Event Date</td>
-            <td>Event Time</td>
-        </tr>
-        <tbody id="eventList">
-        </tbody>
-    </table>
-<script>
-    const events = [];
-    // Fetch events from the backend when the page loads
-    window.onload = function() {
-        fetchEvents();
-    }
-    function showMessage(message) {
-        const messageDiv = document.getElementById('message');
-        messageDiv.innerHTML = message;
-    }
-    function planEvent() {
-        const eventName = document.getElementById('eventName').value;
-        const eventDate = document.getElementById('eventDate').value;
-        const eventTime = document.getElementById('eventTime').value;
-        if (!eventName || !eventDate || !eventTime) {
-            alert('Please enter event details.');
-            return;
+    <h1>Student Tasks</h1>
+    <!-- Input field for entering tasks -->
+    <input type="text" id="task-input" placeholder="Enter a task">
+    <!-- Button to add tasks -->
+    <button id="add-task">Add Task</button>
+    <!-- Task list display -->
+    <ul id="task-list"></ul>
+    <script>
+        // Initialize an array to store the tasks
+        let tasks = [];
+        // Function to update the tasks display
+        function updateTaskList() {
+            const taskList = document.getElementById("task-list");
+            taskList.innerHTML = ""; // Clear the previous list
+            tasks.forEach((task, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${index + 1}. ${task}`;
+                taskList.appendChild(listItem);
+            });
         }
-        // Create an object for the new event
-        const newEvent = {
-            name: eventName,
-            date: eventDate,
-            time: eventTime
-        };
-        // Send a POST request to the backend to add the event
-        fetch('/api/schedule/addEvent', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newEvent)
-        })
-        .then(response => {
-            if (response.status === 201) {
-                return response.json();
-            } else {
-                throw new Error('Failed to add event.');
+        // Function to add a task
+        function addTask() {
+            const taskInput = document.getElementById("task-input");
+            const newTask = taskInput.value.trim();
+            if (newTask) {
+                tasks.push(newTask);
+                updateTaskList();
+                taskInput.value = ""; // Clear the input field
+                // Store tasks in a cookie
+                setCookie("tasks", JSON.stringify(tasks), 365);
             }
-        })
-        .then(data => {
-            events.push(newEvent);
-            displayEvents();
-            document.getElementById('eventName').value = '';
-            document.getElementById('eventDate').value = '';
-            document.getElementById('eventTime').value = '';
-            showMessage(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showMessage('Failed to add the event.');
-        });
-    }
-    function fetchEvents() {
-        // Send a GET request to the backend to fetch events
-        fetch('/api/schedule/events')
-        .then(response => response.json())
-        .then(data => {
-            events = data;
-            displayEvents();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-    function displayEvents() {
-        const eventList = document.getElementById('eventList');
-        eventList.innerHTML = '';
-        for (const event of events) {
-            const row = document.createElement('tr');
-            const nameCell = document.createElement('td');
-            nameCell.textContent = event.name;
-            const dateCell = document.createElement('td');
-            dateCell.textContent = event.date;
-            const timeCell = document.createElement('td');
-            timeCell.textContent = event.time;
-            row.appendChild(nameCell);
-            row.appendChild(dateCell);
-            row.appendChild(timeCell);
-            eventList.appendChild(row);
         }
-    }
-</script>
-
+        // Load tasks from a cookie when the page loads
+        window.onload = function () {
+            const storedTasks = getCookie("tasks");
+            if (storedTasks) {
+                tasks = JSON.parse(storedTasks);
+                updateTaskList();
+            }
+        };
+        // Add a task when the "Add Task" button is clicked
+        const addTaskButton = document.getElementById("add-task");
+        addTaskButton.addEventListener("click", addTask);
+        // Helper function to set a cookie
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        // Helper function to get a cookie
+        function getCookie(cname) {
+            const name = cname + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
 </body>
 </html>
