@@ -2,58 +2,91 @@
 layout: base
 title: Planner
 ---
-## Student Planner
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Tasks</title>
     <style>
         /* CSS styles for the interface */
-        .eventList {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        /* Styling for the tables */
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        table, th, td {
+            border: 1px solid #333;
+            background-color: #007BFF;
+        }
+        th {
+            background-color: #007BFF;
             color: black;
-            background-color: white; /* Optional background color for emphasis */
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+        td {
+            padding: 10px;
+            text-align: center;
         }
         .eventName {
             color: blue;
         }
-        .td {
-            color: blue;
-        }
-        .title {
-            color: white;
-        }
         .delete-button {
             color: red;
             background-color: white;
+            border: 1px solid red;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: red;
+            color: white;
+        }
+        .title {
+            background-color: #333;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <table border="1">
+    <h2 style="color:white">Student Planner</h2>
+    <table>
         <tr>
-            <td colspan="2" align="center" id="title" class="title">Customizable Event Schedule</td>
+            <td colspan="2" class="title">Customizable Event Schedule</td>
         </tr>
         <tr>
-            <td colspan="2">Enter Event Details:</td>
+            <td colspan="2" style="color:white">Enter Event Details:</td>
         </tr>
         <tr>
             <td>
-                Event Name:
+                <span style="color:white">Event Name:</span>
                 <input type="text" id="task-input" class="eventName" placeholder="Enter a task">
             </td>
             <td>
-                Event Date:
+                <span style="color:white">Event Date:</span>
                 <input type="date" id="eventDate">
             </td>
         </tr>
         <tr>
             <td>
-                Event Time:
+                <span style="color:white">Event Time:</span>
                 <input type="time" id="eventTime">
             </td>
             <td>
-                <button onclick="addTask()" class="td">Add Task</button>
+                <button onclick="addTask()" class="eventName">Add Task</button>
             </td>
         </tr>
         <tr>
@@ -62,18 +95,18 @@ title: Planner
             </td>
         </tr>
     </table>
-    <table border="1">
+    <table>
         <tr>
-            <td colspan="3" align="center" class="title">Scheduled Events</td>
+            <td colspan="5" class="title">Scheduled Events</td>
         </tr>
         <tr>
-            <td>Task</td>
-            <td>Event Date</td>
-            <td>Event Time</td>
-            <td>Done</td>
-            <td>Delete</td>
+            <th>Task</th>
+            <th>Event Date</th>
+            <th>Event Time</th>
+            <th>Mark as Done</th>
+            <th>Delete</th>
         </tr>
-        <tbody id="task-list" class="eventList">
+        <tbody id="task-list" class="eventList" style="color:white">
         </tbody>
     </table>
     <script>
