@@ -77,6 +77,9 @@ title: Planner
         }
     </style>
 </head>
+<div style="text-align: center;">
+    <h1 style="color: white;">Student Planner</h1>
+</div>
     <table border="1">
         <tr>
             <td colspan="2" align="center" id="title" class="title">Customizable Event Schedule</td>
