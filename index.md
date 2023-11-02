@@ -55,14 +55,14 @@ title: Home
             border-radius: 5px;
             padding: 10px;
             max-width: 50%;
-            margin-top: 40px;
+            margin-top: 50px;
         }
         #scheduleResults p {
-            margin: 0;
-            padding: 5px 0;
-            border-bottom: 1px solid #ccc;
-            font-size: 14px;
-        }
+        margin: 0;
+        padding: 5px 0;
+        border-bottom: 1px solid #ccc;
+        font-size: 16px; /* Adjust the font size as needed */
+    }
         #inputSchedule, #scheduleResults {
             display: inline-block;
             width: 49%;
