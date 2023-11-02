@@ -89,6 +89,21 @@
             margin-left: 40%;
             background-color: light blue;
         }
+            ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #333;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #a0daf2;
+        border-radius: 4px;
+        width: 4px; 
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #FFF;
+        width: 4px;
+    }
     </style>
 </head>
 
