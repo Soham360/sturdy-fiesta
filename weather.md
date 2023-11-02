@@ -38,8 +38,8 @@ title: Weather
     </div>
     <script>
         document.getElementById("getWeatherButton").addEventListener("click", function() {
-            const latitude = 33.01479454987898;
-            const longitude = -117.12140255005595;
+            const lat = 32.715736;
+            const lon = -117.161087;
             const apiUrl = `https://api.weather.gov/points/${latitude},${longitude}`;
             fetch(apiUrl)
                 .then(response => response.json())
