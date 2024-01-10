@@ -1,0 +1,23 @@
+{
+  "name": "sturdy-fiesta",
+  "version": "1.0.0",
+  "description": "[Project Runtime Link](https://soham360.github.io/sturdy-fiesta/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soham360/sturdy-fiesta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soham360/sturdy-fiesta/issues"
+  },
+  "homepage": "https://github.com/Soham360/sturdy-fiesta#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}

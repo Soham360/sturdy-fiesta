@@ -142,10 +142,9 @@ title: Planner
             if (taskName) {
                 tasks.push({ name: taskName, date: taskDate, time: taskTime, isDone: false });
                 updateTaskList();
-                taskNameInput.value = ""; // Clear the input field
-                taskDateInput.value = ""; // Clear the date input
-                taskTimeInput.value = ""; // Clear the time input
-                // Store tasks in a cookie
+                taskNameInput.value = ""; 
+                taskDateInput.value = ""; 
+                taskTimeInput.value = ""; 
                 setCookie("tasks", JSON.stringify(tasks), 365);
             }
         }
